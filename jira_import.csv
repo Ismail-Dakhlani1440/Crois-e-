@@ -1,0 +1,59 @@
+Issue Id,Summary,Issue Type,Labels,Labels,Labels,Labels,Description,Due date,Parent,Story point estimate,Custom field (Start date)
+20000,"EPIC-001: Project Setup & Infrastructure",Epic,mental-health,setup,docker,,"Docker/Airflow stack, repo structure and dependencies",10/11/2026,,5,09/11/2026
+20001,"EPIC-002: Exploratory Data Analysis (Step 1)",Epic,mental-health,step1,eda,,"Audit the dataset and find the variables most linked to risk level",11/11/2026,,8,10/11/2026
+20002,"EPIC-003: Data Preparation & Pipeline (Step 2)",Epic,mental-health,step2,preprocessing,,"Split, clean, encode, scale and handle imbalance inside a leak-free pipeline",12/11/2026,,10,11/11/2026
+20003,"EPIC-004: Modeling & Optimization (Steps 3-4)",Epic,mental-health,step3-4,modeling,,"Train and compare models then tune and evaluate the chosen one on the test set",13/11/2026,,13,12/11/2026
+20004,"EPIC-005: Airflow DAG & Streamlit App (Step 5)",Epic,mental-health,step5,airflow,streamlit,"Automate the pipeline with Airflow and build the interactive app",14/11/2026,,10,13/11/2026
+20005,"EPIC-006: Documentation & Defense",Epic,mental-health,docs,defense,,"README, justified decisions and defense preparation",15/11/2026,,8,11/11/2026
+20006,"US-001: Docker & Airflow stack running",Story,mental-health,infra,docker,,"Airflow webserver and scheduler start and the UI is reachable on port 8081",10/11/2026,20000,3,09/11/2026
+20007,"US-002: Repo structure & dependencies",Story,mental-health,infra,requirements,,"Create src, dags, app, models, reports and notebooks folders and finalize requirements and .gitignore",10/11/2026,20000,2,10/11/2026
+20008,"US-003: Dataset audit",Story,mental-health,step1,audit,,"Structure, dtypes, missing values, duplicates, inconsistencies and outliers",10/11/2026,20001,3,10/11/2026
+20009,"US-004: Descriptive stats & target distribution",Story,mental-health,step1,stats,,"Descriptive statistics and class balance of the target",11/11/2026,20001,2,10/11/2026
+20010,"US-005: Feature-target relationships & correlations",Story,mental-health,step1,correlation,,"Relationships with the target and ranking of the most linked variables",11/11/2026,20001,3,11/11/2026
+20011,"US-006: Cleaning decisions & train/test split",Story,mental-health,step2,split,,"Remove duplicates then stratified 80/20 split before fitting anything",11/11/2026,20002,2,11/11/2026
+20012,"US-007: Preprocessing pipeline",Story,mental-health,step2,pipeline,,"Imputation, IQR outlier capping, encoding and scaling in a ColumnTransformer",12/11/2026,20002,5,11/11/2026
+20013,"US-008: Class imbalance handling",Story,mental-health,step2,smote,,"Compare SMOTE and class weights and integrate the choice in the pipeline",12/11/2026,20002,3,12/11/2026
+20014,"US-009: Train & compare models",Story,mental-health,step3,models,,"At least 3 classifiers on the same training data with accuracy, precision, recall, F1 and ROC-AUC",12/11/2026,20003,4,12/11/2026
+20015,"US-010: Hyperparameter tuning",Story,mental-health,step4,tuning,,"RandomizedSearchCV then GridSearchCV on the most promising models",13/11/2026,20003,4,12/11/2026
+20016,"US-011: Final evaluation & model saving",Story,mental-health,step4,evaluation,,"Test set evaluation, confusion matrix, error analysis and saved .joblib pipeline",13/11/2026,20003,5,13/11/2026
+20017,"US-012: Airflow DAG",Story,mental-health,step5,airflow,,"Scheduled DAG for preparation, preprocessing, training and evaluation with monitoring",13/11/2026,20004,5,13/11/2026
+20018,"US-013: Streamlit app",Story,mental-health,step5,streamlit,,"Performance dashboard and prediction on new data with a pedagogical-use disclaimer",14/11/2026,20004,5,13/11/2026
+20019,"US-014: README & documentation",Story,mental-health,docs,readme,,"Document every step and justify each cleaning decision",14/11/2026,20005,4,11/11/2026
+20020,"US-015: Defense preparation",Story,mental-health,defense,demo,,"10-minute demo, code walkthrough and answers to technical questions",15/11/2026,20005,4,14/11/2026
+20021,"T-001.001: Build Airflow image",Subtask,mental-health,infra,docker,,"docker compose build with the constrained requirements",09/11/2026,20006,1,09/11/2026
+20022,"T-001.002: Configure docker.env & init DB",Subtask,mental-health,infra,env,,"Env values and airflow-init with admin user creation",09/11/2026,20006,1,09/11/2026
+20023,"T-001.003: Verify Airflow UI login",Subtask,mental-health,infra,airflow,,"Log in at localhost:8081 and confirm the scheduler is healthy",10/11/2026,20006,1,10/11/2026
+20024,"T-002.001: Create folder structure",Subtask,mental-health,infra,structure,,"src, dags, app, models, reports, notebooks",10/11/2026,20007,1,10/11/2026
+20025,"T-002.002: Finalize requirements & .gitignore",Subtask,mental-health,infra,requirements,,"Pinned versions and ignore docker.env, logs and models",10/11/2026,20007,1,10/11/2026
+20026,"T-003.001: Load CSV and check shape & dtypes",Subtask,mental-health,step1,audit,,"First look at the file in data/raw",10/11/2026,20008,1,10/11/2026
+20027,"T-003.002: Missing values & duplicates",Subtask,mental-health,step1,audit,,"Count and locate missing values and duplicated rows",10/11/2026,20008,1,10/11/2026
+20028,"T-003.003: Inconsistencies & outliers",Subtask,mental-health,step1,audit,,"Impossible values, inconsistent categories and outlier detection",10/11/2026,20008,1,10/11/2026
+20029,"T-004.001: Descriptive statistics",Subtask,mental-health,step1,stats,,"Summary statistics for numeric and categorical columns",10/11/2026,20009,1,10/11/2026
+20030,"T-004.002: Target distribution & imbalance",Subtask,mental-health,step1,target,,"Class counts and imbalance ratio",11/11/2026,20009,1,11/11/2026
+20031,"T-005.001: Plots of features vs target",Subtask,mental-health,step1,eda,,"Visual relationships between each feature and risk level",11/11/2026,20010,1,11/11/2026
+20032,"T-005.002: Correlations & association tests",Subtask,mental-health,step1,correlation,,"Correlation matrix, chi-square and ANOVA or Spearman depending on types",11/11/2026,20010,1,11/11/2026
+20033,"T-005.003: Rank most predictive variables",Subtask,mental-health,step1,features,,"Shortlist of variables most linked to risk",11/11/2026,20010,1,11/11/2026
+20034,"T-006.001: Remove duplicates & fix inconsistencies",Subtask,mental-health,step2,cleaning,,"Cleaning done before the split with each decision justified",11/11/2026,20011,1,11/11/2026
+20035,"T-006.002: Stratified 80/20 split",Subtask,mental-health,step2,split,,"Fixed random seed and stratification on the target",11/11/2026,20011,1,11/11/2026
+20036,"T-007.001: Imputation strategy",Subtask,mental-health,step2,imputation,,"Choose median or most frequent per column type and justify",11/11/2026,20012,2,11/11/2026
+20037,"T-007.002: IQR outlier capping",Subtask,mental-health,step2,outliers,,"Cap using bounds fitted on the training set only",11/11/2026,20012,2,11/11/2026
+20038,"T-007.003: Encoding & scaling",Subtask,mental-health,step2,encoding,,"Ordinal and one-hot encoding plus standardization in ColumnTransformer",12/11/2026,20012,1,12/11/2026
+20039,"T-008.001: Compare SMOTE vs class weights",Subtask,mental-health,step2,smote,,"Decide if resampling is needed based on cross-validated results",12/11/2026,20013,2,12/11/2026
+20040,"T-008.002: Integrate in imblearn pipeline",Subtask,mental-health,step2,pipeline,,"Resampling applied to training folds only",12/11/2026,20013,1,12/11/2026
+20041,"T-009.001: Train Logistic Regression, Random Forest, Gradient Boosting",Subtask,mental-health,step3,models,,"Same training data and same cross-validation for all",12/11/2026,20014,2,12/11/2026
+20042,"T-009.002: Compare metrics",Subtask,mental-health,step3,metrics,,"Accuracy, precision, recall, F1, confusion matrix and ROC-AUC",12/11/2026,20014,2,12/11/2026
+20043,"T-010.001: RandomizedSearchCV",Subtask,mental-health,step4,tuning,,"Wide search on the best models",12/11/2026,20015,2,12/11/2026
+20044,"T-010.002: GridSearchCV refinement",Subtask,mental-health,step4,tuning,,"Narrow search around the best parameters and choose the final model",13/11/2026,20015,2,12/11/2026
+20045,"T-011.001: Test set evaluation",Subtask,mental-health,step4,evaluation,,"Metrics and confusion matrix on the untouched test set",13/11/2026,20016,2,13/11/2026
+20046,"T-011.002: Error analysis & limits",Subtask,mental-health,step4,analysis,,"Which students are misclassified and the model limits",13/11/2026,20016,2,13/11/2026
+20047,"T-011.003: Save pipeline",Subtask,mental-health,step4,joblib,,"Save preprocessing and model together as .joblib",13/11/2026,20016,1,13/11/2026
+20048,"T-012.001: Write src modules used by the DAG",Subtask,mental-health,step5,airflow,,"Reusable load, clean, train and evaluate functions",13/11/2026,20017,2,13/11/2026
+20049,"T-012.002: Build DAG with schedule & retries",Subtask,mental-health,step5,airflow,,"Task chain with a scheduled run and retries",13/11/2026,20017,2,13/11/2026
+20050,"T-012.003: Error handling & status tracking",Subtask,mental-health,step5,airflow,,"Failure callbacks and logs",13/11/2026,20017,1,13/11/2026
+20051,"T-013.001: Metrics dashboard page",Subtask,mental-health,step5,streamlit,,"Show metrics, charts and confusion matrix from reports",13/11/2026,20018,2,13/11/2026
+20052,"T-013.002: Prediction form with input validation",Subtask,mental-health,step5,streamlit,,"Single prediction and CSV upload with error handling",14/11/2026,20018,2,14/11/2026
+20053,"T-013.003: Streamlit service & disclaimer",Subtask,mental-health,step5,streamlit,,"Docker service sharing models and reports plus a visible not-a-diagnosis notice",14/11/2026,20018,1,14/11/2026
+20054,"T-014.001: Document cleaning decisions",Subtask,mental-health,docs,justification,,"Justify each cleaning and modeling choice",13/11/2026,20019,2,11/11/2026
+20055,"T-014.002: Write README",Subtask,mental-health,docs,readme,,"Setup, how to run, results and limits",14/11/2026,20019,2,14/11/2026
+20056,"T-015.001: Prepare 10-minute demo",Subtask,mental-health,defense,demo,,"Scripted walkthrough of the app",15/11/2026,20020,2,14/11/2026
+20057,"T-015.002: Prepare code review & Q&A",Subtask,mental-health,defense,review,,"Explain technical choices and likely jury questions",15/11/2026,20020,2,15/11/2026
